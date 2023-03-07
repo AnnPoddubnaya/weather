@@ -1,4 +1,3 @@
-
 const cityName = document.querySelector('.header__city');
 const discriptions = document.querySelector('.header__descriptions');
 const temperature = document.querySelector('.header__temperature');
