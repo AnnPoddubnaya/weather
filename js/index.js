@@ -23,10 +23,10 @@ async function getWeather() {
             cityName.textContent = data.name;
 
             discriptions.textContent = data.weather[0]['description'];
-            temperature.innerHTML = Math.round(data.main.temp);
+            temperature.innerHTML = Math.round(data.main.temp) + '&deg';
             headerImage.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png"/>`;
 
-            feelsLike.innerHTML = Math.round(data.main.feels_like);
+            feelsLike.innerHTML = Math.round(data.main.feels_like) + '&deg';
             pressure.innerHTML = data.main['pressure'] + ' мм рт ст';
             humidity.innerHTML = data.main['humidity'] + ' %';
             speedWind.innerHTML = Math.round(data.wind['speed']) + ' м/с'
@@ -55,9 +55,9 @@ async function forecast() {
             for (let i = 0; i < 6; i++) {
                 let item = data.list[i];
                 // console.log(item);
-                let temp = Math.round(item.main.temp);
+                let temp = Math.round(item.main.temp) + '&deg';
                 let icon = `<img src="https://openweathermap.org/img/wn/${item.weather[0]['icon']}@2x.png"/>`;
-                // console.log(item['dt_txt'].slice(0, -3).slice(11))
+                // console.log(item['dt_txt'])
                 let hours = (i === 0 ? 'Cейчас' : `${item['dt_txt'].slice(0, -3).slice(11)}`);
                 // console.log(hours);
 
