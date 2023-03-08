@@ -54,7 +54,14 @@ body {
     flex-direction: column;
 
     justify-content: space-between;
-    /* background: linear-gradient(360deg, #3594BF 0%, rgba(255, 255, 255, 0) 100%), #53A6CB; */
+
+}
+
+.day {
+    background: linear-gradient(360deg, #3594BF 0%, rgba(255, 255, 255, 0) 100%), #53A6CB;
+}
+
+.night {
     background: linear-gradient(360deg, #55707E 0%, rgba(255, 255, 255, 0) 100%), #042232;
 
 }

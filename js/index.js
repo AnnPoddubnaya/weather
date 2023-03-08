@@ -11,7 +11,7 @@ const speedWind = document.querySelector('.footer__value_four');
 
 const input = document.querySelector('.city');
 
-
+//погода 
 async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&lang=ru&units=metric&appid=f5020f72bbf9dc540d62747a839345c9`;
     fetch(url)
@@ -39,7 +39,7 @@ getWeather();
 
 input.addEventListener('change', getWeather);
 input.addEventListener('change', forecast);
-
+//прогноз
 async function forecast() {
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${input.value}&lang=ru&units=metric&appid=f5020f72bbf9dc540d62747a839345c9`;
     fetch(url)
@@ -76,3 +76,29 @@ async function forecast() {
         })
 }
 forecast();
+
+//тема
+
+function dayOrNight() {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&lang=ru&units=metric&appid=f5020f72bbf9dc540d62747a839345c9`;
+    fetch(url)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            const wrapper = document.querySelector('.wrapper');
+            let sunrise = data.sys.sunrise * 1000;
+            let sunset = data.sys.sunset * 1000;
+            let now = Date.now();
+            // console.log(now);
+            // console.log(sunrise);
+            // console.log(sunset);
+            if (now > sunrise && now < sunset) {
+                wrapper.classList.add('day');
+            } else {
+                wrapper.classList.add('night');
+            }
+        })
+}
+dayOrNight()
+setInterval(dayOrNight, 6000000)
